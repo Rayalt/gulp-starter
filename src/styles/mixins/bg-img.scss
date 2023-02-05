@@ -1,0 +1,30 @@
+@mixin bg-img($format: null, $path...) {
+	$webp: $path;
+	//$avif: $path;
+	$main: $path;
+
+	@if $format {
+		$webp: url('#{$path}.webp');
+		//$avif: url('#{$path}.avif');
+		$main: url('#{$path}.#{$format}');
+	}
+
+	// stylelint-disable-next-line order/order
+	background-image: $webp;
+
+	//.avif & {
+	//	background-image: $avif;
+	//}
+
+	.no-webp & {
+		background-image: $main;
+	}
+}
+
+/*
+	Пример использования с variables
+	@include bg-img(false, var(--var-img-webp), var(--var-img-avif), var(--var-img-main));
+
+	Без variables
+	@include bg-img('png', '/path/path');
+*/

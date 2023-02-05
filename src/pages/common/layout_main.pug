@@ -1,0 +1,45 @@
+block variables
+
+//include mixins.pug
+doctype html
+html(class='html', lang='ru-RU')
+	head
+		meta(charset='utf-8')
+		meta(
+			name='viewport',
+			content='width=device-width, user-scalable=yes, initial-scale=1.0, ' +
+			'maximum-scale=3.0, minimum-scale=0.1, shrink-to-fit=no'
+		)
+		meta(name='format-detection', content='telephone=no')
+		meta(name='format-detection', content='date=no')
+		meta(name='format-detection', content='address=no')
+		meta(name='format-detection', content='email=no')
+		meta(name='HandheldFriendly' content='true')
+		meta(name='robots', content='index, follow')
+		meta(name='theme-color', content='#000000')
+
+		block meta
+			title page title
+			meta(name='description', content='')
+			meta(name='keywords', content='')
+
+		block head
+			link(rel='stylesheet', href='css/style.min.css')
+
+body
+
+	noscript Please enable JavaScript to continue using this application
+
+	header.header
+		block header
+			include ../common/layout_header
+
+	main.main
+		block content
+
+	footer.footer
+		block footer
+			include ../common/layout_footer
+
+	script(src='js/main.js')
+	block scripts

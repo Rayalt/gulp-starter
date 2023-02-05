@@ -1,0 +1,74 @@
+.row {
+	--gutter-x: #{$columns-gutter-x-default};
+	--gutter-y: 0;
+	--grid-columns: #{$columns};
+
+	@include make-css-grid-cols;
+
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
+	gap: var(--gutter-y) var(--gutter-x);
+	height: fit-content;
+
+	> * {
+		grid-column: auto/span var(--grid-columns);
+	}
+
+	&--auto-cols {
+		grid-template-columns: auto;
+		grid-auto-flow: column;
+		width: fit-content;
+
+		> * {
+			grid-column: auto;
+		}
+	}
+}
+
+@include make-css-grid-rows;
+
+//.grid {
+//	@include container();
+//	&__row {
+//		@include row();
+//	}
+//	&__col {
+//		@include col();
+//		&_xs-1 {
+//			@include col(xs, 1, $grid-columns, 24px);
+//		}
+//		&_xs-2 {
+//			@include col(xs, 2, $grid-columns, 24px);
+//		}
+//		&_xs-3 {
+//			@include col(xs, 3, $grid-columns, 24px);
+//		}
+//		&_xs-4 {
+//			@include col(xs, 4, $grid-columns, 24px);
+//		}
+//		&_xs-5 {
+//			@include col(xs, 5, $grid-columns, 24px);
+//		}
+//		&_xs-6 {
+//			@include col(xs, 6, $grid-columns, 24px);
+//		}
+//		&_xs-7 {
+//			@include col(xs, 7, $grid-columns, 24px);
+//		}
+//		&_xs-8 {
+//			@include col(xs, 8, $grid-columns, 24px);
+//		}
+//		&_xs-9 {
+//			@include col(xs, 9, $grid-columns, 24px);
+//		}
+//		&_xs-10 {
+//			@include col(xs, 10, $grid-columns, 24px);
+//		}
+//		&_xs-11 {
+//			@include col(xs, 11, $grid-columns, 24px);
+//		}
+//		&_xs-12 {
+//			@include col(xs, 12, $grid-columns, 24px);
+//		}
+//	}
+//}
